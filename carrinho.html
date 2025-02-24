@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🛒 Carrinho de Compras</h1>
+        <a href="index.html" class="cart-link">🍽️ Voltar ao Cardápio</a>
+    </header>
+
+    <main>
+        <section id="cart">
+            <h2>Seus Itens</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total">0,00</span></p>
+            <button onclick="checkout()">Finalizar Compra</button>
+            <button onclick="clearCart()" class="clear-button">Limpar Carrinho</button>
+        </section>
+    </main>
+
+    <!-- Modal para exibir o modelo 3D -->
+    <div id="modal3D" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <model-viewer id="3d-model" src="" alt="Modelo 3D" auto-rotate camera-controls></model-viewer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
