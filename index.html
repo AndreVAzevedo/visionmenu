@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🍽️ Cardápio Digital</h1>
+        <p>Escolha seus pratos favoritos e adicione ao carrinho!</p>
+        <a href="carrinho.html" class="cart-link">🛒 Ver Carrinho</a>
+    </header>
+
+    <main>
+        <section id="menu">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/150" alt="Pizza Margherita">
+                <h2>Pizza Margherita</h2>
+                <p>Molho de tomate, mussarela, manjericão fresco e azeite.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="view3DModel('pizza.glb')">Ver em 3D</button>
+                <button onclick="addToCart('Pizza Margherita', 35)">Adicionar ao Carrinho</button>
+            </div>
+            <!-- Adicione mais itens do menu aqui -->
+        </section>
+    </main>
+
+    <!-- Modal para exibir o modelo 3D -->
+    <div id="modal3D" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <model-viewer id="3d-model" src="" alt="Modelo 3D" auto-rotate camera-controls></model-viewer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
