@@ -1,73 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cardápio Digital</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>Cardápio Digital</h1>
+        <h1>🍽️ Cardápio Digital</h1>
+        <p>Escolha seus pratos favoritos e adicione ao carrinho!</p>
+        <a href="carrinho.html" class="cart-link">🛒 Ver Carrinho</a>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#entradas">Entradas</a></li>
-            <li><a href="#pratos-principais">Pratos Principais</a></li>
-            <li><a href="#sobremesas">Sobremesas</a></li>
-            <li><a href="#bebidas">Bebidas</a></li>
-        </ul>
-    </nav>
+
     <main>
-        <section id="entradas">
-            <h2>Entradas</h2>
-            <div class="item">
-                <h3>Salada Caesar</h3>
-                <p>R$ 20,00</p>
+        <section id="menu">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/150" alt="Pizza Margherita">
+                <h2>Pizza Margherita</h2>
+                <p>Molho de tomate, mussarela, manjericão fresco e azeite.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="view3DModel('models/pizza.glb')">Ver em 3D</button>
+                <button onclick="addToCart('Pizza Margherita', 35)">Adicionar ao Carrinho</button>
             </div>
-        </section>
-        <section id="pratos-principais">
-            <h2>Pratos Principais</h2>
-            <div class="item">
-                <h3>Filé Mignon</h3>
-                <p>R$ 50,00</p>
-            </div>
-        </section>
-        <section id="sobremesas">
-            <h2>Sobremesas</h2>
-            <div class="item">
-                <h3>Pudim de Leite</h3>
-                <p>R$ 15,00</p>
-            </div>
-        </section>
-        <section id="bebidas">
-            <h2>Bebidas</h2>
-            <div class="item">
-                <h3>Suco de Laranja</h3>
-                <p>R$ 10,00</p>
-            </div>
+            <!-- Adicione mais itens do menu aqui -->
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Cardápio Digital</p>
-    </footer>
-    <div class="add-item-form">
-        <h2>Adicionar Item</h2>
-        <form id="addItemForm">
-            <label for="section">Seção:</label>
-            <select id="section">
-                <option value="entradas">Entradas</option>
-                <option value="pratos-principais">Pratos Principais</option>
-                <option value="sobremesas">Sobremesas</option>
-                <option value="bebidas">Bebidas</option>
-            </select>
-            <label for="itemName">Nome do Item:</label>
-            <input type="text" id="itemName" required>
-            <label for="itemPrice">Preço:</label>
-            <input type="text" id="itemPrice" required>
-            <button type="submit">Adicionar</button>
-        </form>
+
+    <!-- Modal para exibir o modelo 3D -->
+    <div id="modal3D" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <model-viewer id="3d-model" src="" alt="Modelo 3D" auto-rotate camera-controls></model-viewer>
+        </div>
     </div>
-    <script src="scripts.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
